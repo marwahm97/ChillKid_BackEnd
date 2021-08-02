@@ -7,8 +7,7 @@ const http = require('http');
 const server = http.createServer(app);
 const cors = require('cors')
 const morgan = require('morgan')
-const routes = require('./Router/index')
-const sendMail = require('./sendMail');
+const routes = require('./Router/index');
 const passwordReset = require("./Router/resetPassword/forget-password.js");
 
 
@@ -57,7 +56,6 @@ app.get('/', (req, res)=>{
   res.send('hello world')
 })
 app.use(routes);
-app.use('/sendMail', sendMail)
 app.use("/api/password-reset", passwordReset);
 
 
